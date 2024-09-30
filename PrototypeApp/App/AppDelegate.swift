@@ -13,8 +13,33 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        print("App has launched.")
         
         return makeSplitView()
+    }
+    
+    // Called when the app is about to enter the background
+    func applicationDidEnterBackground(_ application: UIApplication) {
+        print("App is in the background.")
+        // Save data, release shared resources, etc.
+    }
+
+    // Called when the app is about to enter the foreground
+    func applicationWillEnterForeground(_ application: UIApplication) {
+        print("App is about to enter the foreground.")
+        // Undo changes made on entering the background
+    }
+
+    // Called when the app has become active
+    func applicationDidBecomeActive(_ application: UIApplication) {
+        print("App has become active.")
+        // Restart any tasks that were paused
+    }
+
+    // Called when the app is about to terminate
+    func applicationWillTerminate(_ application: UIApplication) {
+        print("App will terminate.")
+        // Save data if appropriate
     }
     
     private func makeViewController() -> Bool {
