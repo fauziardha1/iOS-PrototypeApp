@@ -14,8 +14,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         print("App has launched.")
-        
-        return makeSplitView()
+        window = UIWindow(frame: UIScreen.main.bounds)
+        let router = AppRouter(window: window)
+        let factory = DefaultFeatureFactory(router: router)
+        router.factory = factory
+        router.start()
+        return true
     }
     
     // Called when the app is about to enter the background
