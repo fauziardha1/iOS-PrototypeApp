@@ -28,6 +28,12 @@
 		AC6BFF2C2E1D132100D1515F /* ToastManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6BFF2A2E1D132100D1515F /* ToastManager.swift */; };
 		AC6BFF2D2E1D132100D1515F /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6BFF2B2E1D132100D1515F /* Toast.swift */; };
 		AC6BFF2F2E1E126700D1515F /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6BFF2E2E1E126500D1515F /* Colors.swift */; };
+		AC6BFF322E1E797C00D1515F /* SettingsUIComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6BFF312E1E797700D1515F /* SettingsUIComposer.swift */; };
+		AC6BFF352E1E79F000D1515F /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6BFF342E1E79EE00D1515F /* SettingsViewController.swift */; };
+		AC6BFF372E1E7A3200D1515F /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6BFF362E1E7A2D00D1515F /* SettingsViewModel.swift */; };
+		AC6BFF3B2E1E7F8B00D1515F /* ChangePasswordUIComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6BFF3A2E1E7F8300D1515F /* ChangePasswordUIComposer.swift */; };
+		AC6BFF3E2E1E805400D1515F /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6BFF3D2E1E804700D1515F /* ChangePasswordViewController.swift */; };
+		AC6BFF402E1E85E900D1515F /* ChangePasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6BFF3F2E1E85E400D1515F /* ChangePasswordViewModel.swift */; };
 		AC9CDA322C3D47D90018B3E6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC9CDA312C3D47D90018B3E6 /* Assets.xcassets */; };
 		AC9CDA352C3D47D90018B3E6 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = AC9CDA342C3D47D90018B3E6 /* Base */; };
 		AC9CDA402C3D47D90018B3E6 /* PrototypeAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9CDA3F2C3D47D90018B3E6 /* PrototypeAppTests.swift */; };
@@ -80,6 +86,12 @@
 		AC6BFF2A2E1D132100D1515F /* ToastManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastManager.swift; sourceTree = "<group>"; };
 		AC6BFF2B2E1D132100D1515F /* Toast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Toast.swift; sourceTree = "<group>"; };
 		AC6BFF2E2E1E126500D1515F /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		AC6BFF312E1E797700D1515F /* SettingsUIComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsUIComposer.swift; sourceTree = "<group>"; };
+		AC6BFF342E1E79EE00D1515F /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		AC6BFF362E1E7A2D00D1515F /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
+		AC6BFF3A2E1E7F8300D1515F /* ChangePasswordUIComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordUIComposer.swift; sourceTree = "<group>"; };
+		AC6BFF3D2E1E804700D1515F /* ChangePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewController.swift; sourceTree = "<group>"; };
+		AC6BFF3F2E1E85E400D1515F /* ChangePasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewModel.swift; sourceTree = "<group>"; };
 		AC9CDA252C3D47D80018B3E6 /* PrototypeApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PrototypeApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC9CDA312C3D47D90018B3E6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AC9CDA342C3D47D90018B3E6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -179,6 +191,7 @@
 		AC6BFF0E2E1BBA1900D1515F /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				AC6BFF302E1E796D00D1515F /* Settings */,
 				AC6BFF112E1BBA3200D1515F /* Profile */,
 				AC6BFF102E1BBA2A00D1515F /* Home */,
 				AC6BFF0F2E1BBA2600D1515F /* Login */,
@@ -248,6 +261,51 @@
 				AC6BFF2B2E1D132100D1515F /* Toast.swift */,
 			);
 			path = CommonUI;
+			sourceTree = "<group>";
+		};
+		AC6BFF302E1E796D00D1515F /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				AC6BFF382E1E7F6D00D1515F /* menus */,
+				AC6BFF332E1E79E800D1515F /* Presentation */,
+				AC6BFF312E1E797700D1515F /* SettingsUIComposer.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		AC6BFF332E1E79E800D1515F /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				AC6BFF362E1E7A2D00D1515F /* SettingsViewModel.swift */,
+				AC6BFF342E1E79EE00D1515F /* SettingsViewController.swift */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		AC6BFF382E1E7F6D00D1515F /* menus */ = {
+			isa = PBXGroup;
+			children = (
+				AC6BFF392E1E7F7C00D1515F /* changePassword */,
+			);
+			path = menus;
+			sourceTree = "<group>";
+		};
+		AC6BFF392E1E7F7C00D1515F /* changePassword */ = {
+			isa = PBXGroup;
+			children = (
+				AC6BFF3C2E1E803E00D1515F /* Presentation */,
+				AC6BFF3A2E1E7F8300D1515F /* ChangePasswordUIComposer.swift */,
+			);
+			path = changePassword;
+			sourceTree = "<group>";
+		};
+		AC6BFF3C2E1E803E00D1515F /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				AC6BFF3F2E1E85E400D1515F /* ChangePasswordViewModel.swift */,
+				AC6BFF3D2E1E804700D1515F /* ChangePasswordViewController.swift */,
+			);
+			path = Presentation;
 			sourceTree = "<group>";
 		};
 		AC9CDA1C2C3D47D80018B3E6 = {
@@ -546,15 +604,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC6BFF402E1E85E900D1515F /* ChangePasswordViewModel.swift in Sources */,
 				AC6BFF132E1BBA4800D1515F /* LoginUIComposer.swift in Sources */,
 				AC6BFF1D2E1BD0BD00D1515F /* HomeUIComposer.swift in Sources */,
+				AC6BFF352E1E79F000D1515F /* SettingsViewController.swift in Sources */,
 				AC16D6472CAA67D400598527 /* MasterViewController.swift in Sources */,
 				AC6BFF0D2E1BBA0000D1515F /* AppRoutes.swift in Sources */,
 				AC0EF56B2C3D4F2100DF1C63 /* ViewController.swift in Sources */,
 				AC6BFF162E1BBA8100D1515F /* LoginViewController.swift in Sources */,
 				AC16D6492CAA67E300598527 /* DetailViewController.swift in Sources */,
 				AC6BFF232E1BD56900D1515F /* ProfileUIComposer.swift in Sources */,
+				AC6BFF3E2E1E805400D1515F /* ChangePasswordViewController.swift in Sources */,
 				AC0EF56E2C3D500600DF1C63 /* UserModel.swift in Sources */,
+				AC6BFF3B2E1E7F8B00D1515F /* ChangePasswordUIComposer.swift in Sources */,
 				AC6BFF212E1BD10000D1515F /* HomeViewModel.swift in Sources */,
 				AC6BFF1A2E1BBED200D1515F /* FeatureFactory.swift in Sources */,
 				AC0EF56A2C3D4F2100DF1C63 /* AppDelegate.swift in Sources */,
@@ -564,6 +626,8 @@
 				AC6BFF262E1BD59100D1515F /* ProfileViewController.swift in Sources */,
 				AC6BFF182E1BBC2800D1515F /* LoginViewModel.swift in Sources */,
 				AC6BFF282E1BD5CB00D1515F /* ProfileViewModel.swift in Sources */,
+				AC6BFF372E1E7A3200D1515F /* SettingsViewModel.swift in Sources */,
+				AC6BFF322E1E797C00D1515F /* SettingsUIComposer.swift in Sources */,
 				AC6BFF1F2E1BD0CD00D1515F /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
