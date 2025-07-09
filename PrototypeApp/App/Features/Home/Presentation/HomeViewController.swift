@@ -36,10 +36,15 @@ class HomeViewController: UIViewController {
         profileButton.setTitle("Go to Profile", for: .normal)
         profileButton.addTarget(self, action: #selector(goToProfile), for: .touchUpInside)
         profileButton.translatesAutoresizingMaskIntoConstraints = false
+        profileButton.backgroundColor = .systemBlue
+        profileButton.setTitleColor(.white, for: .normal)
+        profileButton.layer.cornerRadius = 5
+        
         self.view.addSubview(profileButton)
         NSLayoutConstraint.activate([
             profileButton.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
-            profileButton.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 20)
+            profileButton.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 20),
+            profileButton.widthAnchor.constraint(equalToConstant: 100)
         ])
         
         // button logout
@@ -47,10 +52,15 @@ class HomeViewController: UIViewController {
         logoutButton.setTitle("Logout", for: .normal)
         logoutButton.addTarget(self, action: #selector(logoutButtonTapped), for: .touchUpInside)
         logoutButton.translatesAutoresizingMaskIntoConstraints = false
+        logoutButton.backgroundColor = .white
+        logoutButton.setTitleColor(.systemBlue, for: .normal)
+        logoutButton.layer.cornerRadius = 5
+        
         self.view.addSubview(logoutButton)
         NSLayoutConstraint.activate([
             logoutButton.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
-            logoutButton.topAnchor.constraint(equalTo: profileButton.bottomAnchor, constant: 20)
+            logoutButton.topAnchor.constraint(equalTo: profileButton.bottomAnchor, constant: 20),
+            logoutButton.widthAnchor.constraint(equalToConstant: 100)
         ])
     }
     

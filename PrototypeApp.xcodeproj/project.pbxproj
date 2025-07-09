@@ -25,6 +25,9 @@
 		AC6BFF232E1BD56900D1515F /* ProfileUIComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6BFF222E1BD56400D1515F /* ProfileUIComposer.swift */; };
 		AC6BFF262E1BD59100D1515F /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6BFF252E1BD58A00D1515F /* ProfileViewController.swift */; };
 		AC6BFF282E1BD5CB00D1515F /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6BFF272E1BD5C900D1515F /* ProfileViewModel.swift */; };
+		AC6BFF2C2E1D132100D1515F /* ToastManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6BFF2A2E1D132100D1515F /* ToastManager.swift */; };
+		AC6BFF2D2E1D132100D1515F /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6BFF2B2E1D132100D1515F /* Toast.swift */; };
+		AC6BFF2F2E1E126700D1515F /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6BFF2E2E1E126500D1515F /* Colors.swift */; };
 		AC9CDA322C3D47D90018B3E6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC9CDA312C3D47D90018B3E6 /* Assets.xcassets */; };
 		AC9CDA352C3D47D90018B3E6 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = AC9CDA342C3D47D90018B3E6 /* Base */; };
 		AC9CDA402C3D47D90018B3E6 /* PrototypeAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9CDA3F2C3D47D90018B3E6 /* PrototypeAppTests.swift */; };
@@ -74,6 +77,9 @@
 		AC6BFF222E1BD56400D1515F /* ProfileUIComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileUIComposer.swift; sourceTree = "<group>"; };
 		AC6BFF252E1BD58A00D1515F /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		AC6BFF272E1BD5C900D1515F /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
+		AC6BFF2A2E1D132100D1515F /* ToastManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastManager.swift; sourceTree = "<group>"; };
+		AC6BFF2B2E1D132100D1515F /* Toast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Toast.swift; sourceTree = "<group>"; };
+		AC6BFF2E2E1E126500D1515F /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		AC9CDA252C3D47D80018B3E6 /* PrototypeApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PrototypeApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC9CDA312C3D47D90018B3E6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AC9CDA342C3D47D90018B3E6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -141,6 +147,7 @@
 		AC0EF5692C3D4F2100DF1C63 /* App */ = {
 			isa = PBXGroup;
 			children = (
+				AC6BFF292E1D131D00D1515F /* CommonUI */,
 				AC6BFF0E2E1BBA1900D1515F /* Features */,
 				AC6BFF0C2E1BB9FC00D1515F /* AppRoutes.swift */,
 				AC6BFF192E1BBEC600D1515F /* FeatureFactory.swift */,
@@ -231,6 +238,16 @@
 				AC6BFF252E1BD58A00D1515F /* ProfileViewController.swift */,
 			);
 			path = Presentation;
+			sourceTree = "<group>";
+		};
+		AC6BFF292E1D131D00D1515F /* CommonUI */ = {
+			isa = PBXGroup;
+			children = (
+				AC6BFF2E2E1E126500D1515F /* Colors.swift */,
+				AC6BFF2A2E1D132100D1515F /* ToastManager.swift */,
+				AC6BFF2B2E1D132100D1515F /* Toast.swift */,
+			);
+			path = CommonUI;
 			sourceTree = "<group>";
 		};
 		AC9CDA1C2C3D47D80018B3E6 = {
@@ -541,6 +558,9 @@
 				AC6BFF212E1BD10000D1515F /* HomeViewModel.swift in Sources */,
 				AC6BFF1A2E1BBED200D1515F /* FeatureFactory.swift in Sources */,
 				AC0EF56A2C3D4F2100DF1C63 /* AppDelegate.swift in Sources */,
+				AC6BFF2F2E1E126700D1515F /* Colors.swift in Sources */,
+				AC6BFF2C2E1D132100D1515F /* ToastManager.swift in Sources */,
+				AC6BFF2D2E1D132100D1515F /* Toast.swift in Sources */,
 				AC6BFF262E1BD59100D1515F /* ProfileViewController.swift in Sources */,
 				AC6BFF182E1BBC2800D1515F /* LoginViewModel.swift in Sources */,
 				AC6BFF282E1BD5CB00D1515F /* ProfileViewModel.swift in Sources */,

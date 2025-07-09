@@ -6,23 +6,24 @@
 //
 
 class ProfileViewModel {
-    private let router: AppRouting
+    var name: String = String()
+    var email: String = String()
+    var profilePictureURL: String = String()
+    var goToHomeAction: () -> Void = {}
+    var logOutAction: () -> Void = {}
+    var view: ProfileDislayLogic?
     
-    init(router: AppRouting) {
-        self.router = router
+    func navigateToSettings() {}
+    
+    func loadProfileData() {
+        view?.displayProfileData("\(name), \(email), \(profilePictureURL)")
     }
-    
-    func navigateToSettings() {
-        // Navigate to settings screen
-//        router.navigate(to: .settings, from: nil)
-    }
-    
+        
     func logout() {
-        // Perform logout logic here
-        // On success, navigate to login
-        router.navigate(to: .login, from: nil)
+        logOutAction()
     }
-
-
-
+    
+    func goToHome() {
+        goToHomeAction()
+    }
 }

@@ -23,13 +23,16 @@ class LoginViewController: UIViewController {
         let loginButton = UIButton(type: .system)
         loginButton.setTitle("Login", for: .normal)
         loginButton.addTarget(self, action: #selector(loginButtonTapped), for: .touchUpInside)
+        loginButton.backgroundColor = .systemBlue
+        loginButton.setTitleColor(.white, for: .normal)
         
         loginButton.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(loginButton)
         
         NSLayoutConstraint.activate([
             loginButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            loginButton.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+            loginButton.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            loginButton.widthAnchor.constraint(equalToConstant: 100)
         ])
         
         // Additional UI setup can be done here

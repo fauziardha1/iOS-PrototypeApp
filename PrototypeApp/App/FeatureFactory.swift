@@ -32,7 +32,8 @@ struct DefaultFeatureFactory: FeatureFactory {
     }
     
     func makeProfile() -> UIViewController {
-        return ProfileUIComposer.composeProfileViewController(router: router)
+        let profileInput = ProfileInput(email: "email@gmail.com", name: "John", url: "https://google.com")
+        return ProfileUIComposer.composeProfileViewController(router: router, input: profileInput)
     }
     // Add other feature compositions here if needed
 }
