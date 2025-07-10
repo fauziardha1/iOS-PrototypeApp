@@ -76,7 +76,7 @@ struct DefaultFeatureFactory: FeatureFactory {
     }
     
     func makeSideBarContent() -> UIViewController {
-        let vc = ContentViewController()
+        let vc = UIViewController()
         return vc
     }
     
