@@ -9,13 +9,13 @@
 /* Begin PBXBuildFile section */
 		05D998302E2039CA006E3792 /* Domain in Frameworks */ = {isa = PBXBuildFile; productRef = 05D9982F2E2039CA006E3792 /* Domain */; };
 		05D998322E203AC7006E3792 /* Domain in Frameworks */ = {isa = PBXBuildFile; productRef = 05D998312E203AC7006E3792 /* Domain */; };
+		05D998342E2043BE006E3792 /* DetailBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05D998332E2043B8006E3792 /* DetailBaseViewController.swift */; };
 		37361B4232F289939C5A3870 /* Pods_PrototypeAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DF867652DAC37A1195732FB /* Pods_PrototypeAppTests.framework */; };
 		8B2DA6D45F030F6ED8351C7C /* Pods_PrototypeApp_PrototypeAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AD9BACAA47987B3FFCB7B36 /* Pods_PrototypeApp_PrototypeAppUITests.framework */; };
 		AC0EF56A2C3D4F2100DF1C63 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0EF5672C3D4F2100DF1C63 /* AppDelegate.swift */; };
 		AC0EF56B2C3D4F2100DF1C63 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0EF5682C3D4F2100DF1C63 /* ViewController.swift */; };
 		AC0EF56E2C3D500600DF1C63 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0EF56D2C3D500600DF1C63 /* UserModel.swift */; };
 		AC16D6472CAA67D400598527 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC16D6462CAA67D400598527 /* MasterViewController.swift */; };
-		AC16D6492CAA67E300598527 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC16D6482CAA67E300598527 /* DetailViewController.swift */; };
 		AC6BFF0D2E1BBA0000D1515F /* AppRoutes.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6BFF0C2E1BB9FC00D1515F /* AppRoutes.swift */; };
 		AC6BFF132E1BBA4800D1515F /* LoginUIComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6BFF122E1BBA4400D1515F /* LoginUIComposer.swift */; };
 		AC6BFF162E1BBA8100D1515F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6BFF152E1BBA7D00D1515F /* LoginViewController.swift */; };
@@ -64,6 +64,7 @@
 
 /* Begin PBXFileReference section */
 		02BA8087D19D7AB1FC7A2EA8 /* Pods-PrototypeAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PrototypeAppTests.debug.xcconfig"; path = "Target Support Files/Pods-PrototypeAppTests/Pods-PrototypeAppTests.debug.xcconfig"; sourceTree = "<group>"; };
+		05D998332E2043B8006E3792 /* DetailBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailBaseViewController.swift; sourceTree = "<group>"; };
 		0BD6A088D5A78DF59668E191 /* Pods_PrototypeApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PrototypeApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3392C15D5E0D6A5FF2501707 /* Pods-PrototypeApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PrototypeApp.release.xcconfig"; path = "Target Support Files/Pods-PrototypeApp/Pods-PrototypeApp.release.xcconfig"; sourceTree = "<group>"; };
 		37543D84F52A865D1EEF4EBD /* Pods-PrototypeApp-PrototypeAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PrototypeApp-PrototypeAppUITests.debug.xcconfig"; path = "Target Support Files/Pods-PrototypeApp-PrototypeAppUITests/Pods-PrototypeApp-PrototypeAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -74,7 +75,6 @@
 		AC0EF5682C3D4F2100DF1C63 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		AC0EF56D2C3D500600DF1C63 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		AC16D6462CAA67D400598527 /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
-		AC16D6482CAA67E300598527 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		AC6BFF0C2E1BB9FC00D1515F /* AppRoutes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRoutes.swift; sourceTree = "<group>"; };
 		AC6BFF122E1BBA4400D1515F /* LoginUIComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUIComposer.swift; sourceTree = "<group>"; };
 		AC6BFF152E1BBA7D00D1515F /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -187,9 +187,9 @@
 		AC16D6452CAA67B400598527 /* SplitView */ = {
 			isa = PBXGroup;
 			children = (
+				05D998332E2043B8006E3792 /* DetailBaseViewController.swift */,
 				AC16D6462CAA67D400598527 /* MasterViewController.swift */,
 				AC6BFF412E1F6A3700D1515F /* MasterViewModel.swift */,
-				AC16D6482CAA67E300598527 /* DetailViewController.swift */,
 			);
 			path = SplitView;
 			sourceTree = "<group>";
@@ -459,7 +459,7 @@
 			);
 			mainGroup = AC9CDA1C2C3D47D80018B3E6;
 			packageReferences = (
-				05D9982E2E203928006E3792 /* XCLocalSwiftPackageReference "Domain" */,
+				05D9982E2E203928006E3792 /* XCLocalSwiftPackageReference "PrototypeApp/Domain" */,
 			);
 			productRefGroup = AC9CDA262C3D47D80018B3E6 /* Products */;
 			projectDirPath = "";
@@ -551,9 +551,13 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-PrototypeApp/Pods-PrototypeApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
+			inputPaths = (
+			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-PrototypeApp/Pods-PrototypeApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -568,9 +572,13 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-PrototypeApp-PrototypeAppUITests/Pods-PrototypeApp-PrototypeAppUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
+			inputPaths = (
+			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-PrototypeApp-PrototypeAppUITests/Pods-PrototypeApp-PrototypeAppUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -615,10 +623,10 @@
 				AC6BFF422E1F6A4000D1515F /* MasterViewModel.swift in Sources */,
 				AC0EF56B2C3D4F2100DF1C63 /* ViewController.swift in Sources */,
 				AC6BFF162E1BBA8100D1515F /* LoginViewController.swift in Sources */,
-				AC16D6492CAA67E300598527 /* DetailViewController.swift in Sources */,
 				AC6BFF232E1BD56900D1515F /* ProfileUIComposer.swift in Sources */,
 				AC6BFF3E2E1E805400D1515F /* ChangePasswordViewController.swift in Sources */,
 				AC0EF56E2C3D500600DF1C63 /* UserModel.swift in Sources */,
+				05D998342E2043BE006E3792 /* DetailBaseViewController.swift in Sources */,
 				AC6BFF3B2E1E7F8B00D1515F /* ChangePasswordUIComposer.swift in Sources */,
 				AC6BFF212E1BD10000D1515F /* HomeViewModel.swift in Sources */,
 				AC6BFF1A2E1BBED200D1515F /* FeatureFactory.swift in Sources */,
@@ -980,7 +988,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCLocalSwiftPackageReference section */
-		05D9982E2E203928006E3792 /* XCLocalSwiftPackageReference "Domain" */ = {
+		05D9982E2E203928006E3792 /* XCLocalSwiftPackageReference "PrototypeApp/Domain" */ = {
 			isa = XCLocalSwiftPackageReference;
 			relativePath = PrototypeApp/Domain;
 		};
@@ -989,12 +997,12 @@
 /* Begin XCSwiftPackageProductDependency section */
 		05D9982F2E2039CA006E3792 /* Domain */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 05D9982E2E203928006E3792 /* XCLocalSwiftPackageReference "Domain" */;
+			package = 05D9982E2E203928006E3792 /* XCLocalSwiftPackageReference "PrototypeApp/Domain" */;
 			productName = Domain;
 		};
 		05D998312E203AC7006E3792 /* Domain */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 05D9982E2E203928006E3792 /* XCLocalSwiftPackageReference "Domain" */;
+			package = 05D9982E2E203928006E3792 /* XCLocalSwiftPackageReference "PrototypeApp/Domain" */;
 			productName = Domain;
 		};
 /* End XCSwiftPackageProductDependency section */
