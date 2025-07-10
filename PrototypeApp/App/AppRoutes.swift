@@ -71,6 +71,12 @@ final class AppRouter: AppRouting {
         switch route {
             case .login:
                 let vc = factory?.makeLogin() ?? UIViewController()
+                if UIDevice.current.userInterfaceIdiom == .pad {
+                    let loginNav = UINavigationController(rootViewController: vc)
+                    window?.rootViewController = loginNav
+                    return
+                }
+                
                 navigationController.setViewControllers([vc], animated: true)
             
             case .home:
