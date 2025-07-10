@@ -3,10 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 60;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		05D998302E2039CA006E3792 /* Domain in Frameworks */ = {isa = PBXBuildFile; productRef = 05D9982F2E2039CA006E3792 /* Domain */; };
+		05D998322E203AC7006E3792 /* Domain in Frameworks */ = {isa = PBXBuildFile; productRef = 05D998312E203AC7006E3792 /* Domain */; };
 		37361B4232F289939C5A3870 /* Pods_PrototypeAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DF867652DAC37A1195732FB /* Pods_PrototypeAppTests.framework */; };
 		8B2DA6D45F030F6ED8351C7C /* Pods_PrototypeApp_PrototypeAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AD9BACAA47987B3FFCB7B36 /* Pods_PrototypeApp_PrototypeAppUITests.framework */; };
 		AC0EF56A2C3D4F2100DF1C63 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0EF5672C3D4F2100DF1C63 /* AppDelegate.swift */; };
@@ -112,6 +114,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				05D998322E203AC7006E3792 /* Domain in Frameworks */,
+				05D998302E2039CA006E3792 /* Domain in Frameworks */,
 				EAD16A9DFA8CB47658167A9B /* Pods_PrototypeApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -454,6 +458,9 @@
 				Base,
 			);
 			mainGroup = AC9CDA1C2C3D47D80018B3E6;
+			packageReferences = (
+				05D9982E2E203928006E3792 /* XCLocalSwiftPackageReference "Domain" */,
+			);
 			productRefGroup = AC9CDA262C3D47D80018B3E6 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -971,6 +978,26 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		05D9982E2E203928006E3792 /* XCLocalSwiftPackageReference "Domain" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = PrototypeApp/Domain;
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		05D9982F2E2039CA006E3792 /* Domain */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 05D9982E2E203928006E3792 /* XCLocalSwiftPackageReference "Domain" */;
+			productName = Domain;
+		};
+		05D998312E203AC7006E3792 /* Domain */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 05D9982E2E203928006E3792 /* XCLocalSwiftPackageReference "Domain" */;
+			productName = Domain;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = AC9CDA1D2C3D47D80018B3E6 /* Project object */;
 }
