@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ProfileViewController: UIViewController {
+class ProfileViewController: DetailBaseViewController {
     var viewModel: ProfileViewModel?
     
     private let label: UILabel = {

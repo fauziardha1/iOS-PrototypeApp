@@ -6,7 +6,7 @@
 //
 
 import UIKit
-class SettingsViewController: UIViewController {
+class SettingsViewController: DetailBaseViewController {
     var viewModel: SettingsViewModel?
     
     private let tableView: UITableView = {
