@@ -18,6 +18,7 @@ class HomeViewController: UIViewController {
     }
     
     private func setupUI() {
+        title = "Home"
         // Setup UI elements and constraints here
         let titleLabel = UILabel()
         titleLabel.text = "Welcome to Home"
