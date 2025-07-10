@@ -44,18 +44,7 @@ class MenuViewController: UITableViewController {
     func selectFirstMenu() {
         guard let viewModel else { return }
         tableView.selectRow(at: selectedIndex, animated: true, scrollPosition: .none)
-        showDetailContent(for: viewModel.menus[selectedIndex.row])
-    }
-    
-    func showDetailContent(for menu: String) {
-        return
-        let detailVC = ContentViewController()
-        detailVC.updateContent(with: menu)
-        
-        if let splitViewController = self.splitViewController {
-            let detailNavController = UINavigationController(rootViewController: detailVC)
-            splitViewController.showDetailViewController(detailNavController, sender: nil)
-        }
+        viewModel.navigateTo(selectedIndex.row)
     }
 }
 
