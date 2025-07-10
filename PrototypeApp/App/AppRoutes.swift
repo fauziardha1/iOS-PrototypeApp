@@ -13,7 +13,22 @@ enum AppRoute {
     case profile
     case settings
     case changePassword
+    case showDetail(AppMainMenu)
     // Add more cases as app grows
+}
+
+enum AppMainMenu: CaseIterable {
+    case home
+    case profile
+    case settings
+    
+    static func getRawValue(of type: AppMainMenu) -> String {
+        switch type {
+            case .home: return "Home"
+            case .profile: return "Profile"
+            case .settings: return "Setting"
+        }
+    }
 }
 
 protocol AppRouting {
@@ -25,6 +40,8 @@ final class AppRouter: AppRouting {
     private let navigationController: UINavigationController
     var factory: FeatureFactory?
     private var tabBarController: UITabBarController?
+    private var sideBar: UISplitViewController?
+    private var sideBarDetailNav: UINavigationController?
 
     init(window: UIWindow?) {
         self.window = window
@@ -34,8 +51,7 @@ final class AppRouter: AppRouting {
     }
     
     func start() {
-        initiateTabBar()
-        // Start the app with the login screen
+        _ =  UIDevice.current.userInterfaceIdiom == .pad ? initiateSideBar() : initiateTabBar()
         navigate(to: .login)
     }
     
@@ -60,13 +76,33 @@ final class AppRouter: AppRouting {
     
         self.tabBarController = tabBar
     }
+    
+    private func initiateSideBar() {
+        let splitViewController = UISplitViewController()
+        let menuVC = factory?.makeSideBarMenu() ?? UIViewController()
+        let menuNav = UINavigationController(rootViewController: menuVC)
+        let detailVC = factory?.makeSideBarContent() ?? UIViewController()
+        let detailNav = UINavigationController(rootViewController: detailVC)
+        splitViewController.viewControllers = [menuNav, detailNav]
+        splitViewController.preferredDisplayMode = .automatic
+        
+        self.sideBar = splitViewController
+    }
 
     func navigate(to route: AppRoute, from: UIViewController? = nil) {
         switch route {
             case .login:
                 let vc = factory?.makeLogin() ?? UIViewController()
                 navigationController.setViewControllers([vc], animated: true)
+            
             case .home:
+                if UIDevice.current.userInterfaceIdiom == .pad {
+                    guard let sideBar, let window else { return }
+                    let vc = factory?.makeHome() ?? UIViewController()
+                    sideBar.showDetailViewController(vc, sender: nil)
+                    window.rootViewController = sideBar
+                    return
+                }
                 guard let tabBarController else { return }
                 navigationController.setViewControllers([tabBarController], animated: true)
             
@@ -75,7 +111,13 @@ final class AppRouter: AppRouting {
                     tabBarController.selectedIndex = 1
                     return
                 }
+            
                 let vc = factory?.makeProfile() ?? UIViewController()
+                if let sideBar {
+                    sideBar.showDetailViewController(vc, sender: from)
+                    return
+                }
+            
                 navigationController.pushViewController(vc, animated: true)
                 break;
             
@@ -84,12 +126,39 @@ final class AppRouter: AppRouting {
                     tabBarController.selectedIndex = 2
                     return
                 }
+    
                 let vc = factory?.makeSettings() ?? UIViewController()
+                if let sideBar {
+                    sideBar.showDetailViewController(vc, sender: nil)
+                    return
+                }
                 navigationController.pushViewController(vc, animated: true)
             
             case .changePassword:
                 let vc = factory?.makeChangePassword() ?? UIViewController()
+                if let sideBar {
+                    sideBar.showDetailViewController(vc, sender: from)
+                    return
+                }
                 navigationController.pushViewController(vc, animated: false)
+            
+            case .showDetail(let menu):
+                guard let sideBarDetailNav else { return }
+            
+                switch menu {
+                    case .home:
+                        let vc = factory?.makeHome() ?? UIViewController()
+                        sideBarDetailNav.setViewControllers([vc], animated: true)
+                    
+                    case .profile:
+                        let vc = factory?.makeProfile() ?? UIViewController()
+                        sideBarDetailNav.setViewControllers([vc], animated: true)
+                    
+                    case .settings:
+                        let vc = factory?.makeSettings() ?? UIViewController()
+                        sideBarDetailNav.setViewControllers([vc], animated: true)
+                }
+                break;
         }
     }
 }

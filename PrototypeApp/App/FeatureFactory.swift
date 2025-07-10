@@ -13,6 +13,8 @@ protocol FeatureFactory {
     func makeProfile() -> UIViewController
     func makeSettings() -> UIViewController
     func makeChangePassword() -> UIViewController
+    func makeSideBarMenu() -> UIViewController
+    func makeSideBarContent() -> UIViewController
     // add other features if needed
 }
 
@@ -45,6 +47,38 @@ struct DefaultFeatureFactory: FeatureFactory {
     func makeChangePassword() -> UIViewController {
         return ChangePasswordUIComposer.makeChangePassword(router: router)
     }
+    
+    func makeSideBarMenu() -> UIViewController {
+        let menuViewController = MenuViewController()
+        let menuViewModel = MenuViewModel()
+        menuViewModel.getMenus = { AppMainMenu.allCases.map { AppMainMenu.getRawValue(of: $0) }}
+        menuViewModel.view = menuViewController
+        menuViewController.viewModel = menuViewModel
+        menuViewController.selectFirstMenu()
+        menuViewModel.actionNavigateTo = { index in
+            let menu = AppMainMenu.allCases[index]
+            switch menu {
+                case .home:
+                router.navigate(to: .home, from: nil)
+                print("home")
+                case .profile:
+                router.navigate(to: .profile, from: nil)
+                print("profile")
+                
+                case .settings:
+                router.navigate(to: .settings, from: nil)
+                print("settings")
+            }
+        }
+        
+        return menuViewController
+    }
+    
+    func makeSideBarContent() -> UIViewController {
+        let vc = ContentViewController()
+        return vc
+    }
+    
     // Add other feature compositions here if needed
 }
 
