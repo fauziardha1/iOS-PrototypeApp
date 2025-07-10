@@ -6,30 +6,9 @@
 //
 
 import UIKit
-// This file defines the app's routing structure and navigation logic.
-enum AppRoute {
-    case login
-    case home
-    case profile
-    case settings
-    case changePassword
-    case showDetail(AppMainMenu)
-    // Add more cases as app grows
-}
+import Domain // Import the new domain layer enums
 
-enum AppMainMenu: CaseIterable {
-    case home
-    case profile
-    case settings
-    
-    static func getRawValue(of type: AppMainMenu) -> String {
-        switch type {
-            case .home: return "Home"
-            case .profile: return "Profile"
-            case .settings: return "Setting"
-        }
-    }
-}
+// This file defines the app's routing structure and navigation logic.
 
 protocol AppRouting {
     func navigate(to route: AppRoute, from: UIViewController?)
@@ -41,8 +20,7 @@ final class AppRouter: AppRouting {
     var factory: FeatureFactory?
     private var tabBarController: UITabBarController?
     private var sideBar: UISplitViewController?
-    private var sideBarDetailNav: UINavigationController?
-
+    
     init(window: UIWindow?) {
         self.window = window
         self.navigationController = UINavigationController()
@@ -98,8 +76,9 @@ final class AppRouter: AppRouting {
             case .home:
                 if UIDevice.current.userInterfaceIdiom == .pad {
                     guard let sideBar, let window else { return }
-                    let vc = factory?.makeHome() ?? UIViewController()
-                    sideBar.showDetailViewController(vc, sender: nil)
+                    let homeVc = factory?.makeHome() ?? UIViewController()
+                    let homeNav = UINavigationController(rootViewController: homeVc)
+                    sideBar.showDetailViewController(homeNav, sender: nil)
                     window.rootViewController = sideBar
                     return
                 }
@@ -114,7 +93,8 @@ final class AppRouter: AppRouting {
             
                 let vc = factory?.makeProfile() ?? UIViewController()
                 if let sideBar {
-                    sideBar.showDetailViewController(vc, sender: from)
+                    let profileNav = UINavigationController(rootViewController: vc)
+                    sideBar.showDetailViewController(profileNav, sender: from)
                     return
                 }
             
@@ -129,36 +109,19 @@ final class AppRouter: AppRouting {
     
                 let vc = factory?.makeSettings() ?? UIViewController()
                 if let sideBar {
-                    sideBar.showDetailViewController(vc, sender: nil)
+                    let settingsNav = UINavigationController(rootViewController: vc)
+                    sideBar.showDetailViewController(settingsNav, sender: nil)
                     return
                 }
                 navigationController.pushViewController(vc, animated: true)
             
             case .changePassword:
                 let vc = factory?.makeChangePassword() ?? UIViewController()
-                if let sideBar {
-                    sideBar.showDetailViewController(vc, sender: from)
+                if let sideBar, let detailNav = (sideBar.viewControllers.last as? UINavigationController) {
+                    detailNav.pushViewController(vc, animated: true)
                     return
                 }
                 navigationController.pushViewController(vc, animated: false)
-            
-            case .showDetail(let menu):
-                guard let sideBarDetailNav else { return }
-            
-                switch menu {
-                    case .home:
-                        let vc = factory?.makeHome() ?? UIViewController()
-                        sideBarDetailNav.setViewControllers([vc], animated: true)
-                    
-                    case .profile:
-                        let vc = factory?.makeProfile() ?? UIViewController()
-                        sideBarDetailNav.setViewControllers([vc], animated: true)
-                    
-                    case .settings:
-                        let vc = factory?.makeSettings() ?? UIViewController()
-                        sideBarDetailNav.setViewControllers([vc], animated: true)
-                }
-                break;
         }
     }
 }

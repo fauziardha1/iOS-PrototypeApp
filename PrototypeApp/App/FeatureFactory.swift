@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Domain
 
 protocol FeatureFactory {
     func makeLogin() -> UIViewController
