@@ -8,6 +8,7 @@
 import UIKit
 
 class DetailBaseViewController: UIViewController {
+    var minimizedMainMenu: () -> Void = {}
     override func viewDidLoad() {
         super.viewDidLoad()
         if UIDevice.current.userInterfaceIdiom == .pad {
@@ -22,11 +23,9 @@ class DetailBaseViewController: UIViewController {
     }
 
     @objc func toggleMenu() {
-        guard let splitViewController = self.splitViewController else { return }
-        let mode = splitViewController.preferredDisplayMode
-        UIView.animate(withDuration: 0.3) {
-            splitViewController.preferredDisplayMode = mode == .secondaryOnly ? .oneBesideSecondary : .secondaryOnly
-            splitViewController.view.layoutIfNeeded()
+       minimizedMainMenu()
+        if let splitViewController = self.splitViewController {
+            splitViewController.view.setNeedsLayout()
         }
     }
 }

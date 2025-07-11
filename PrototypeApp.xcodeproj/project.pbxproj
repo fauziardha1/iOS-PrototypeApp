@@ -13,7 +13,7 @@
 		37361B4232F289939C5A3870 /* Pods_PrototypeAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DF867652DAC37A1195732FB /* Pods_PrototypeAppTests.framework */; };
 		8B2DA6D45F030F6ED8351C7C /* Pods_PrototypeApp_PrototypeAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AD9BACAA47987B3FFCB7B36 /* Pods_PrototypeApp_PrototypeAppUITests.framework */; };
 		AC0EF56A2C3D4F2100DF1C63 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0EF5672C3D4F2100DF1C63 /* AppDelegate.swift */; };
-		AC16D6472CAA67D400598527 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC16D6462CAA67D400598527 /* MasterViewController.swift */; };
+		AC16D6472CAA67D400598527 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC16D6462CAA67D400598527 /* MenuViewController.swift */; };
 		AC6BFF0D2E1BBA0000D1515F /* AppRoutes.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6BFF0C2E1BB9FC00D1515F /* AppRoutes.swift */; };
 		AC6BFF132E1BBA4800D1515F /* LoginUIComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6BFF122E1BBA4400D1515F /* LoginUIComposer.swift */; };
 		AC6BFF162E1BBA8100D1515F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6BFF152E1BBA7D00D1515F /* LoginViewController.swift */; };
@@ -34,7 +34,8 @@
 		AC6BFF3B2E1E7F8B00D1515F /* ChangePasswordUIComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6BFF3A2E1E7F8300D1515F /* ChangePasswordUIComposer.swift */; };
 		AC6BFF3E2E1E805400D1515F /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6BFF3D2E1E804700D1515F /* ChangePasswordViewController.swift */; };
 		AC6BFF402E1E85E900D1515F /* ChangePasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6BFF3F2E1E85E400D1515F /* ChangePasswordViewModel.swift */; };
-		AC6BFF422E1F6A4000D1515F /* MasterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6BFF412E1F6A3700D1515F /* MasterViewModel.swift */; };
+		AC6BFF422E1F6A4000D1515F /* MenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6BFF412E1F6A3700D1515F /* MenuViewModel.swift */; };
+		AC808E0B2E21130E00901D7C /* CustomSplitContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC808E0A2E21130300901D7C /* CustomSplitContainerViewController.swift */; };
 		AC9CDA322C3D47D90018B3E6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC9CDA312C3D47D90018B3E6 /* Assets.xcassets */; };
 		AC9CDA352C3D47D90018B3E6 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = AC9CDA342C3D47D90018B3E6 /* Base */; };
 		AC9CDA402C3D47D90018B3E6 /* PrototypeAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9CDA3F2C3D47D90018B3E6 /* PrototypeAppTests.swift */; };
@@ -70,7 +71,7 @@
 		7DF867652DAC37A1195732FB /* Pods_PrototypeAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PrototypeAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		932AFD0748170772DB4F30AE /* Pods-PrototypeApp-PrototypeAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PrototypeApp-PrototypeAppUITests.release.xcconfig"; path = "Target Support Files/Pods-PrototypeApp-PrototypeAppUITests/Pods-PrototypeApp-PrototypeAppUITests.release.xcconfig"; sourceTree = "<group>"; };
 		AC0EF5672C3D4F2100DF1C63 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		AC16D6462CAA67D400598527 /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
+		AC16D6462CAA67D400598527 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		AC6BFF0C2E1BB9FC00D1515F /* AppRoutes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRoutes.swift; sourceTree = "<group>"; };
 		AC6BFF122E1BBA4400D1515F /* LoginUIComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUIComposer.swift; sourceTree = "<group>"; };
 		AC6BFF152E1BBA7D00D1515F /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -91,7 +92,8 @@
 		AC6BFF3A2E1E7F8300D1515F /* ChangePasswordUIComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordUIComposer.swift; sourceTree = "<group>"; };
 		AC6BFF3D2E1E804700D1515F /* ChangePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewController.swift; sourceTree = "<group>"; };
 		AC6BFF3F2E1E85E400D1515F /* ChangePasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewModel.swift; sourceTree = "<group>"; };
-		AC6BFF412E1F6A3700D1515F /* MasterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewModel.swift; sourceTree = "<group>"; };
+		AC6BFF412E1F6A3700D1515F /* MenuViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewModel.swift; sourceTree = "<group>"; };
+		AC808E0A2E21130300901D7C /* CustomSplitContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSplitContainerViewController.swift; sourceTree = "<group>"; };
 		AC9CDA252C3D47D80018B3E6 /* PrototypeApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PrototypeApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC9CDA312C3D47D90018B3E6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AC9CDA342C3D47D90018B3E6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -174,8 +176,8 @@
 			isa = PBXGroup;
 			children = (
 				05D998332E2043B8006E3792 /* DetailBaseViewController.swift */,
-				AC16D6462CAA67D400598527 /* MasterViewController.swift */,
-				AC6BFF412E1F6A3700D1515F /* MasterViewModel.swift */,
+				AC16D6462CAA67D400598527 /* MenuViewController.swift */,
+				AC6BFF412E1F6A3700D1515F /* MenuViewModel.swift */,
 			);
 			path = SplitView;
 			sourceTree = "<group>";
@@ -249,6 +251,7 @@
 		AC6BFF292E1D131D00D1515F /* CommonUI */ = {
 			isa = PBXGroup;
 			children = (
+				AC808E0A2E21130300901D7C /* CustomSplitContainerViewController.swift */,
 				AC6BFF2E2E1E126500D1515F /* Colors.swift */,
 				AC6BFF2A2E1D132100D1515F /* ToastManager.swift */,
 				AC6BFF2B2E1D132100D1515F /* Toast.swift */,
@@ -604,10 +607,11 @@
 				AC6BFF132E1BBA4800D1515F /* LoginUIComposer.swift in Sources */,
 				AC6BFF1D2E1BD0BD00D1515F /* HomeUIComposer.swift in Sources */,
 				AC6BFF352E1E79F000D1515F /* SettingsViewController.swift in Sources */,
-				AC16D6472CAA67D400598527 /* MasterViewController.swift in Sources */,
+				AC16D6472CAA67D400598527 /* MenuViewController.swift in Sources */,
 				AC6BFF0D2E1BBA0000D1515F /* AppRoutes.swift in Sources */,
-				AC6BFF422E1F6A4000D1515F /* MasterViewModel.swift in Sources */,
+				AC6BFF422E1F6A4000D1515F /* MenuViewModel.swift in Sources */,
 				AC6BFF162E1BBA8100D1515F /* LoginViewController.swift in Sources */,
+				AC808E0B2E21130E00901D7C /* CustomSplitContainerViewController.swift in Sources */,
 				AC6BFF232E1BD56900D1515F /* ProfileUIComposer.swift in Sources */,
 				AC6BFF3E2E1E805400D1515F /* ChangePasswordViewController.swift in Sources */,
 				05D998342E2043BE006E3792 /* DetailBaseViewController.swift in Sources */,

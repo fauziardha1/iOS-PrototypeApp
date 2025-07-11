@@ -9,7 +9,9 @@ import UIKit
 
 class MenuViewController: UITableViewController {
     var viewModel: MenuViewModel?
+    private var isMinimized: Bool = false
     var selectedIndex: IndexPath = IndexPath(row: 0, section: 0)
+    var widthConstraint: NSLayoutConstraint?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,7 +25,11 @@ class MenuViewController: UITableViewController {
         tableView.selectRow(at: selectedIndex, animated: false, scrollPosition: .none)
     }
     
-    
+    func minimized() {
+        self.isMinimized.toggle()
+        tableView.reloadData()
+    }
+        
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         guard let viewModel else { return .zero }
         return viewModel.menus.count
@@ -32,6 +38,13 @@ class MenuViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         cell.textLabel?.text = viewModel?.menus[indexPath.row] ?? String()
+        if isMinimized {
+                cell.textLabel?.text = nil
+                cell.imageView?.image = UIImage(systemName: viewModel?.menuIcons[indexPath.row] ?? "")
+            } else {
+                cell.textLabel?.text = viewModel?.menus[indexPath.row]
+                cell.imageView?.image = UIImage(systemName: viewModel?.menuIcons[indexPath.row] ?? "")
+            }
         return cell
     }
     

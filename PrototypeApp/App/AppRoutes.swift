@@ -39,7 +39,9 @@ final class AppRouter: AppRouting {
     /// Tab bar controller for iPhone navigation.
     private var tabBarController: UITabBarController?
     /// Sidebar controller for iPad navigation.
-    private var sideBar: UISplitViewController?
+    private var sideBar: UIViewController?
+    
+    private var minimizedMenu: () -> Void = {}
     
     /**
      Initializes the AppRouter with the main window.
@@ -89,15 +91,20 @@ final class AppRouter: AppRouting {
      Sets up the sidebar navigation for iPad devices.
      */
     private func initiateSideBar() {
-        let splitViewController = UISplitViewController()
+        
         let menuVC = factory?.makeSideBarMenu() ?? UIViewController()
         let menuNav = UINavigationController(rootViewController: menuVC)
         let detailVC = factory?.makeSideBarContent() ?? UIViewController()
         let detailNav = UINavigationController(rootViewController: detailVC)
-        splitViewController.viewControllers = [menuNav, detailNav]
-        splitViewController.preferredDisplayMode = .automatic
-        
+        guard let menu = menuVC as? MenuViewController else { return }
+        let splitViewController = CustomSplitContainerViewController(menu: menu, detail: detailNav)
         self.sideBar = splitViewController
+        
+        self.minimizedMenu = {
+            if let menu = menuVC as? MenuViewController {
+                menu.minimized()
+            }
+        }
     }
 
     /**
@@ -122,6 +129,9 @@ final class AppRouter: AppRouting {
                 if UIDevice.current.userInterfaceIdiom == .pad {
                     guard let sideBar, let window else { return }
                     let homeVc = factory?.makeHome() ?? UIViewController()
+                    if let detail = homeVc as? DetailBaseViewController {
+                        detail.minimizedMainMenu = minimizedMenu
+                    }
                     let homeNav = UINavigationController(rootViewController: homeVc)
                     sideBar.showDetailViewController(homeNav, sender: nil)
                     window.rootViewController = sideBar
@@ -138,6 +148,9 @@ final class AppRouter: AppRouting {
             
                 let vc = factory?.makeProfile() ?? UIViewController()
                 if let sideBar {
+                    if let detail = vc as? DetailBaseViewController {
+                        detail.minimizedMainMenu = minimizedMenu
+                    }
                     let profileNav = UINavigationController(rootViewController: vc)
                     sideBar.showDetailViewController(profileNav, sender: from)
                     return
@@ -154,6 +167,9 @@ final class AppRouter: AppRouting {
     
                 let vc = factory?.makeSettings() ?? UIViewController()
                 if let sideBar {
+                    if let detail = vc as? DetailBaseViewController {
+                        detail.minimizedMainMenu = minimizedMenu
+                    }
                     let settingsNav = UINavigationController(rootViewController: vc)
                     sideBar.showDetailViewController(settingsNav, sender: nil)
                     return
@@ -162,9 +178,10 @@ final class AppRouter: AppRouting {
             
             case .changePassword:
                 let vc = factory?.makeChangePassword() ?? UIViewController()
-                if let sideBar, let detailNav = (sideBar.viewControllers.last as? UINavigationController) {
-                    detailNav.pushViewController(vc, animated: true)
-                    return
+                if  let sideBar = sideBar as? CustomSplitContainerViewController,
+                    let detailNav = (sideBar.detailViewController as? UINavigationController) {
+                        detailNav.pushViewController(vc, animated: true)
+                        return
                 }
                 navigationController.pushViewController(vc, animated: false)
         }
