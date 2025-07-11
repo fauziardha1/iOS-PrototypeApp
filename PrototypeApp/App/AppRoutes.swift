@@ -8,19 +8,43 @@
 import UIKit
 import Domain // Import the new domain layer enums
 
-// This file defines the app's routing structure and navigation logic.
+/**
+ This file defines the app's routing structure and navigation logic.
+*/
 
+/**
+ Protocol that defines navigation actions for the app.
+ */
 protocol AppRouting {
+    /**
+     Navigates to the specified route from a given view controller.
+     - Parameters:
+        - route: The destination route to navigate to.
+        - from: The source UIViewController (optional).
+     */
     func navigate(to route: AppRoute, from: UIViewController?)
 }
 
+/**
+ AppRouter is responsible for handling navigation and routing logic throughout the app.
+ It supports both iPad (sidebar) and iPhone (tab bar) navigation structures.
+ */
 final class AppRouter: AppRouting {
+    /// Reference to the main application window.
     private weak var window: UIWindow?
+    /// Main navigation controller for stack-based navigation.
     private let navigationController: UINavigationController
+    /// Factory for creating feature view controllers.
     var factory: FeatureFactory?
+    /// Tab bar controller for iPhone navigation.
     private var tabBarController: UITabBarController?
+    /// Sidebar controller for iPad navigation.
     private var sideBar: UISplitViewController?
     
+    /**
+     Initializes the AppRouter with the main window.
+     - Parameter window: The UIWindow to use for root view controller assignment.
+     */
     init(window: UIWindow?) {
         self.window = window
         self.navigationController = UINavigationController()
@@ -28,11 +52,17 @@ final class AppRouter: AppRouting {
         self.window?.makeKeyAndVisible()
     }
     
+    /**
+     Starts the routing logic by determining device type and showing the initial screen.
+     */
     func start() {
         _ =  UIDevice.current.userInterfaceIdiom == .pad ? initiateSideBar() : initiateTabBar()
         navigate(to: .login)
     }
     
+    /**
+     Sets up the tab bar navigation for iPhone devices.
+     */
     private func initiateTabBar() {
         let tabBar = UITabBarController()
         let homeVC = factory?.makeHome() ?? UIViewController()
@@ -55,6 +85,9 @@ final class AppRouter: AppRouting {
         self.tabBarController = tabBar
     }
     
+    /**
+     Sets up the sidebar navigation for iPad devices.
+     */
     private func initiateSideBar() {
         let splitViewController = UISplitViewController()
         let menuVC = factory?.makeSideBarMenu() ?? UIViewController()
@@ -67,6 +100,12 @@ final class AppRouter: AppRouting {
         self.sideBar = splitViewController
     }
 
+    /**
+     Navigates to the specified route, handling device-specific navigation logic.
+     - Parameters:
+        - route: The destination route to navigate to.
+        - from: The source UIViewController (optional).
+     */
     func navigate(to route: AppRoute, from: UIViewController? = nil) {
         switch route {
             case .login:
