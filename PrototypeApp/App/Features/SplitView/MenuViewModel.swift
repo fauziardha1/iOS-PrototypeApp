@@ -5,12 +5,15 @@
 //  Created by Fauzi Arda on 10/07/25.
 //
 
+import Combine
+
 class MenuViewModel {
     var menus: [String] = []
     var view: MenuDisplayLogic?
     var getMenus: () -> [String] = {[]}
     var actionNavigateTo: (Int) -> Void = {_ in }
     var menuIcons: [String] = []
+    var cancellables = Set<AnyCancellable>()
     
     func loadMenus() {
         self.menus = getMenus()

@@ -31,6 +31,14 @@ class ProfileViewController: DetailBaseViewController {
         setupNavigationBar()
         setupView()
         viewModel?.loadProfileData()
+        
+        guard let viewModel else { return }
+        viewModel.$content
+            .receive(on: RunLoop.main)
+            .sink { [weak self] content in
+                guard let self = self else { return }
+                self.label.text = content
+            }.store(in: &viewModel.cancellables)
     }
     
     private func setupView() {
@@ -45,6 +53,15 @@ class ProfileViewController: DetailBaseViewController {
         ])
         
         logoutButton.addTarget(self, action: #selector(logoutTapped), for: .touchUpInside)
+        
+        guard let viewModel else { return }
+        NotificationBannerViewModel.shared.$message
+            .compactMap{$0}
+            .receive(on: RunLoop.main)
+            .sink { [weak self] message in
+                guard let self = self else { return }
+                self.label.text = message
+            }.store(in: &viewModel.cancellables)
     }
 
     private func setupNavigationBar() {

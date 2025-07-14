@@ -41,6 +41,7 @@
 		AC9CDA402C3D47D90018B3E6 /* PrototypeAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9CDA3F2C3D47D90018B3E6 /* PrototypeAppTests.swift */; };
 		AC9CDA4A2C3D47D90018B3E6 /* PrototypeAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9CDA492C3D47D90018B3E6 /* PrototypeAppUITests.swift */; };
 		AC9CDA4C2C3D47D90018B3E6 /* PrototypeAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9CDA4B2C3D47D90018B3E6 /* PrototypeAppUITestsLaunchTests.swift */; };
+		ACE862B42E24FA6A00834B28 /* NotificationBannerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE862B32E24FA6A00834B28 /* NotificationBannerViewModel.swift */; };
 		EAD16A9DFA8CB47658167A9B /* Pods_PrototypeApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BD6A088D5A78DF59668E191 /* Pods_PrototypeApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -103,6 +104,7 @@
 		AC9CDA452C3D47D90018B3E6 /* PrototypeAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PrototypeAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC9CDA492C3D47D90018B3E6 /* PrototypeAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrototypeAppUITests.swift; sourceTree = "<group>"; };
 		AC9CDA4B2C3D47D90018B3E6 /* PrototypeAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrototypeAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		ACE862B32E24FA6A00834B28 /* NotificationBannerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationBannerViewModel.swift; sourceTree = "<group>"; };
 		B2908D4984CF4BC11F838D72 /* Pods-PrototypeApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PrototypeApp.debug.xcconfig"; path = "Target Support Files/Pods-PrototypeApp/Pods-PrototypeApp.debug.xcconfig"; sourceTree = "<group>"; };
 		DFB733AEE27FD35D15A3D141 /* Pods-PrototypeAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PrototypeAppTests.release.xcconfig"; path = "Target Support Files/Pods-PrototypeAppTests/Pods-PrototypeAppTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -177,6 +179,7 @@
 			children = (
 				05D998332E2043B8006E3792 /* DetailBaseViewController.swift */,
 				AC16D6462CAA67D400598527 /* MenuViewController.swift */,
+				ACE862B32E24FA6A00834B28 /* NotificationBannerViewModel.swift */,
 				AC6BFF412E1F6A3700D1515F /* MenuViewModel.swift */,
 			);
 			path = SplitView;
@@ -616,6 +619,7 @@
 				AC6BFF3E2E1E805400D1515F /* ChangePasswordViewController.swift in Sources */,
 				05D998342E2043BE006E3792 /* DetailBaseViewController.swift in Sources */,
 				AC6BFF3B2E1E7F8B00D1515F /* ChangePasswordUIComposer.swift in Sources */,
+				ACE862B42E24FA6A00834B28 /* NotificationBannerViewModel.swift in Sources */,
 				AC6BFF212E1BD10000D1515F /* HomeViewModel.swift in Sources */,
 				AC6BFF1A2E1BBED200D1515F /* FeatureFactory.swift in Sources */,
 				AC0EF56A2C3D4F2100DF1C63 /* AppDelegate.swift in Sources */,

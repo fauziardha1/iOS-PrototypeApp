@@ -5,12 +5,15 @@
 //  Created by Fauzi Arda on 11/07/25.
 //
 import UIKit
+import Combine
 
 class CustomSplitContainerViewController: UIViewController {
     let menuViewController: MenuViewController
     var detailViewController: UIViewController
     var menuWidthConstraint: NSLayoutConstraint!
     private var isMinimized: Bool = false
+    private var cancellables = Set<AnyCancellable>()
+    private var bannerLabel: UILabel?
 
     init(menu: MenuViewController, detail: UIViewController) {
         self.menuViewController = menu
@@ -44,15 +47,24 @@ class CustomSplitContainerViewController: UIViewController {
             detailViewController.view.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             detailViewController.view.trailingAnchor.constraint(equalTo: view.trailingAnchor)
         ])
+        
+        
+        NotificationBannerViewModel.shared.$message
+            .compactMap { $0 }
+            .receive(on: RunLoop.main)
+            .sink { [weak self] message in
+                self?.showBanner(message)
+            }
+            .store(in: &cancellables)
     }
 
-    func minimizeMenu(_ minimized: Bool) {
+    func minimizeMenu() {
         isMinimized.toggle()
-        menuWidthConstraint.constant = isMinimized ? 60 : 200
-        UIView.animate(withDuration: 0.3) {
+        UIView.animate(withDuration: 0.3) { [weak self] in
+            guard let self = self else { return }
+            self.menuWidthConstraint.constant = self.isMinimized ? 60 : 200
             self.view.layoutIfNeeded()
         }
-        menuViewController.minimized()
     }
     
     override func showDetailViewController(_ vc: UIViewController, sender: Any?) {
@@ -77,5 +89,11 @@ class CustomSplitContainerViewController: UIViewController {
         ])
 
         view.layoutIfNeeded()
+    }
+
+    private func showBanner(_ message: String) {
+        let type = ToastType.allCases.randomElement() ?? .info
+        let toast = ToastView(message: message, type: type)
+        ToastManager.shared.show(toast)
     }
 }

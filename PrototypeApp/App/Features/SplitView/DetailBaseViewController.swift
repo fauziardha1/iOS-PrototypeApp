@@ -20,6 +20,16 @@ class DetailBaseViewController: UIViewController {
             )
             navigationItem.leftBarButtonItem = burgerButton
         }
+        
+        // banner button
+        let bannerButton = UIBarButtonItem(
+            image: UIImage(systemName: "bell"),
+            style: .plain,
+            target: self,
+            action: #selector(bannerTapped)
+        )
+        
+        navigationItem.rightBarButtonItem = bannerButton
     }
 
     @objc func toggleMenu() {
@@ -28,4 +38,10 @@ class DetailBaseViewController: UIViewController {
             splitViewController.view.setNeedsLayout()
         }
     }
+    
+    @objc func bannerTapped() {
+        let messages = ["Welcome to the app!", "New features available!", "Don't miss our latest updates!"]
+        NotificationBannerViewModel.shared.message = messages.randomElement() ?? "No messages available"
+    }
+        
 }

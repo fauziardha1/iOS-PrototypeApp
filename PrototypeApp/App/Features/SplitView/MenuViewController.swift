@@ -6,10 +6,11 @@
 //
 
 import UIKit
+import Combine
 
 class MenuViewController: UITableViewController {
     var viewModel: MenuViewModel?
-    private var isMinimized: Bool = false
+    @Published var isMinimized: Bool = false
     var selectedIndex: IndexPath = IndexPath(row: 0, section: 0)
     var widthConstraint: NSLayoutConstraint?
     
@@ -17,8 +18,17 @@ class MenuViewController: UITableViewController {
         super.viewDidLoad()
         title = "Menu"
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
-        viewModel?.loadMenus()
+        guard let viewModel else { return }
+        viewModel.loadMenus()
         selectFirstMenu()
+        
+        self.$isMinimized
+            .receive(on: RunLoop.main)
+            .sink { [weak self] _ in
+                guard let self = self else { return }
+                self.tableView.reloadData()
+            }
+            .store(in: &viewModel.cancellables )
     }
     
     override func viewDidAppear(_ animated: Bool) {
