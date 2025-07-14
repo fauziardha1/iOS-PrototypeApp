@@ -101,9 +101,7 @@ final class AppRouter: AppRouting {
         self.sideBar = splitViewController
         
         self.minimizedMenu = {
-            if let menu = menuVC as? MenuViewController {
-                menu.minimized()
-            }
+            splitViewController.minimizeMenu(true)
         }
     }
 

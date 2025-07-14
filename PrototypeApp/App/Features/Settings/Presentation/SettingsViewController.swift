@@ -23,7 +23,7 @@ class SettingsViewController: DetailBaseViewController {
     
     private func setupView() {
         self.title = "Settings"
-        
+        self.view.backgroundColor = .white
         view.addSubview(tableView)
         tableView.dataSource = self
         tableView.delegate = self
