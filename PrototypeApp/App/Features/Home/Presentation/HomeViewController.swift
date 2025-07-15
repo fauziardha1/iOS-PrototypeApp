@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import GoogleSignIn
 
 class HomeViewController: DetailBaseViewController {
     
@@ -51,7 +52,7 @@ class HomeViewController: DetailBaseViewController {
         // button logout
         let logoutButton = UIButton(type: .system)
         logoutButton.setTitle("Logout", for: .normal)
-        logoutButton.addTarget(self, action: #selector(logoutButtonTapped), for: .touchUpInside)
+        logoutButton.addTarget(self, action: #selector(signOutGoogle), for: .touchUpInside)
         logoutButton.translatesAutoresizingMaskIntoConstraints = false
         logoutButton.backgroundColor = .white
         logoutButton.setTitleColor(.systemBlue, for: .normal)
@@ -72,6 +73,11 @@ class HomeViewController: DetailBaseViewController {
     
     @objc private func logoutButtonTapped() {
         // Handle logout
+        viewModel?.logout()
+    }
+    
+    @objc func signOutGoogle() {
+      GIDSignIn.sharedInstance.signOut()
         viewModel?.logout()
     }
 }

@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+import GoogleSignIn
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
@@ -19,7 +19,32 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let factory = DefaultFeatureFactory(router: router)
         router.factory = factory
         router.start()
+        GIDSignIn.sharedInstance.restorePreviousSignIn { user, error in
+            if error != nil || user == nil {
+              // Show the app's signed-out state.
+            router.start()
+            } else {
+              // Show the app's signed-in state.
+            router.navigate(to: .home)
+            let toast = ToastView(message: "Welcome back, \(user?.profile?.name ?? "User")!", type: .success)
+            ToastManager.shared.show(toast)
+            }
+        }
         return true
+    }
+    
+    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+        var handled: Bool
+
+        handled = GIDSignIn.sharedInstance.handle(url)
+        if handled {
+            return true
+        }
+
+          // Handle other custom URL types.
+
+          // If not handled by this app, return false.
+        return false
     }
     
     // Called when the app is about to enter the background

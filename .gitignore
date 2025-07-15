@@ -1,0 +1,101 @@
+# Xcode
+DerivedData/
+build/
+*.pbxuser
+!default.pbxuser
+*.mode1v3
+!default.mode1v3
+*.mode2v3
+!default.mode2v3
+*.perspectivev3
+!default.perspectivev3
+xcuserdata/
+*.xcscmblueprint
+
+# SwiftPM
+.build/
+Package.resolved
+
+# CocoaPods
+Pods/
+Podfile.lock
+
+# Carthage
+Carthage/
+
+# Fastlane
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots/
+fastlane/test_output/
+
+# Archives
+*.xcarchive
+
+# App files
+*.ipa
+*.dSYM.zip
+*.dSYM
+
+# Playgrounds
+timeline.xctimeline
+playground.xcworkspace
+
+# SwiftPM Xcode project
+.xcodeproj/project.xcworkspace/xcuserdata/
+.xcodeproj/xcuserdata/
+
+# User-specific
+*.moved-aside
+*.xcuserstate
+*.xcuserdatad
+
+# Logs
+*.log
+
+# Environment
+.env
+
+# GoogleService-Info.plist (if you want to keep it private, uncomment below)
+# GoogleService-Info.plist
+
+# Other
+*.swp
+*.swo
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon?
+._*
+.Spotlight-V100
+.Trashes
+
+# Tests
+PrototypeAppTests/
+PrototypeAppUITests/
+
+# Xcode Preview
+*.preview-thumbnails
+*.preview-*.png
+
+# Realm
+*.realm
+*.realm.lock
+*.realm.management
+
+# SPM
+/.swiftpm/
+
+# Editor
+.vscode/
+.idea/
+*.iml
+
+# Misc
+*.orig
+*.bak
+
+# Ignore local package build
+Domain/.build/

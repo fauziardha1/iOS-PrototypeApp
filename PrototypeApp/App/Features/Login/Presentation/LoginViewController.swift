@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import GoogleSignIn
 
 class LoginViewController: UIViewController {
     var viewModel: LoginViewModel?
@@ -35,6 +36,16 @@ class LoginViewController: UIViewController {
             loginButton.widthAnchor.constraint(equalToConstant: 100)
         ])
         
+        // Google Sign-In button
+        let googleSignInButton = GIDSignInButton()
+        googleSignInButton.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(googleSignInButton)
+        NSLayoutConstraint.activate([
+            googleSignInButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            googleSignInButton.topAnchor.constraint(equalTo: loginButton.bottomAnchor, constant: 20)
+        ])
+        
+        googleSignInButton.addTarget(self, action: #selector(googleSignInTapped), for: .touchUpInside)
         // Additional UI setup can be done here
     }
 
@@ -46,6 +57,15 @@ class LoginViewController: UIViewController {
         
         // Navigate to the home screen or perform login logic
         // Example: router.navigate(to: .home, from: self)
+    }
+    
+    @objc func googleSignInTapped() {
+        GIDSignIn.sharedInstance.signIn(withPresenting: self) { signInResult, error in
+            guard error == nil else { return }
+            self.viewModel?.login(username: "\(signInResult?.user.profile?.email ?? "")", password: "\(signInResult?.user.profile?.name ?? "")")
+            print("\(String(describing: signInResult?.user.profile?.email))", "\(String(describing: signInResult?.user.profile?.name))")
+            // If sign in succeeded, display the app's main content View.
+        }
     }
 
 

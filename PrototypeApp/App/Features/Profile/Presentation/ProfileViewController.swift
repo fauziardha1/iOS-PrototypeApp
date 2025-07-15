@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import GoogleSignIn
 
 class ProfileViewController: DetailBaseViewController {
     var viewModel: ProfileViewModel?
@@ -76,6 +77,7 @@ class ProfileViewController: DetailBaseViewController {
     
     @objc private func logoutTapped() {
         // Handle logout action
+        GIDSignIn.sharedInstance.signOut()
         viewModel?.logout()
     }
 }

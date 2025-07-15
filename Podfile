@@ -7,6 +7,7 @@ target 'PrototypeApp' do
 
   # Pods for PrototypeApp
   pod 'RealmSwift', '~>10'
+  pod 'GoogleSignIn'
 
   target 'PrototypeAppTests' do
     inherit! :search_paths
