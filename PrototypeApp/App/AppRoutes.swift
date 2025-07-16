@@ -6,7 +6,30 @@
 //
 
 import UIKit
-import Domain // Import the new domain layer enums
+//import Domain // Import the new domain layer enums
+
+public enum AppRoute {
+    case login
+    case home
+    case profile
+    case settings
+    case changePassword
+    // Add more cases as app grows
+}
+
+public enum AppMainMenu: CaseIterable {
+    case home
+    case profile
+    case settings
+    
+    public static func getRawValue(of type: AppMainMenu) -> String {
+        switch type {
+            case .home: return "Home"
+            case .profile: return "Profile"
+            case .settings: return "Setting"
+        }
+    }
+}
 
 /**
  This file defines the app's routing structure and navigation logic.
