@@ -1,0 +1,29 @@
+{
+  "configurations" : [
+    {
+      "id" : "A6A730A1-117F-407E-A930-30BA7B133CA4",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:PrototypeApp.xcodeproj",
+      "identifier" : "AC9CDA242C3D47D80018B3E6",
+      "name" : "PrototypeApp"
+    }
+  },
+  "testTargets" : [
+    {
+      "parallelizable" : false,
+      "target" : {
+        "containerPath" : "container:PrototypeApp.xcodeproj",
+        "identifier" : "AC9CDA3A2C3D47D90018B3E6",
+        "name" : "PrototypeAppTests"
+      }
+    }
+  ],
+  "version" : 1
+}
